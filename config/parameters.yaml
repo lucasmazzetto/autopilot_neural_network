@@ -1,0 +1,22 @@
+/**:
+  ros__parameters:
+    # Vehicle node and topics
+    vehicle_node: "vehicle_controller" # Name of the node from which to retrieve vehicle parameters
+    velocity_topic: "/velocity" # Topic for publishing/subscribing to velocity commands
+    steering_angle_topic: "/steering_angle" # Topic for publishing/subscribing to steering commands
+    image_topic: "/camera/image_raw" # Topic for subscribing to raw camera images
+    max_velocity_parameter: "max_velocity" # Vehicle parameter defining max velocity
+    max_steering_angle_parameter: "max_steering_angle" # Vehicle parameter defining max steering
+
+    # Data Collector Node Parameters
+    collector_min_velocity_factor: 0.25 # Fraction of max velocity below which data is not recorded
+    collector_timeout_time: 1000000000 # Timeout for data freshness in nanoseconds [ns]
+    collector_update_period: 0.5 # Period for the node's update loop in seconds [s]
+
+    # Autopilot (Inference) Node Parameters
+    image_height: 96 # Height of the image for model input [px] 
+    image_width: 128 # Width of the image for model input [px] 
+
+    # File Paths
+    dataset_path: "/tmp/autopilot_neural_network/dataset" # Path where dataset is saved and loaded
+    model_path: "/tmp/autopilot_neural_network/model.pt" # Path to the trained model for inference
