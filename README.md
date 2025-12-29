@@ -10,6 +10,7 @@ Clone this repository into your ```workspace/src``` folder. If you don't have a 
 
 ```bash
 cd <path_to_your_workspace>/src
+
 git clone git@github.com:lucasmazzetto/autopilot_neural_network.git
 ```
 
