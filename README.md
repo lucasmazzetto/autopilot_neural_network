@@ -70,7 +70,7 @@ This section explains how to use the system to collect data, train the neural ne
 
 ### 🗂️ Data Collection
 
-Before collecting data, configure where the dataset will be stored. Update the `dataset_path` parameter in the `autopilot_neural_network/config/parameters.yaml` file to point to your desired dataset destination.
+Before collecting data, configure where the dataset will be stored. Update the `dataset_path` parameter in the `autopilot_neural_network/config/parameters.yaml` file to point to your desired dataset destination. Make sure to rebuild the package after changing the parameters.
 
 Then, to launch the simulation for data collection, set up the environment and start the vehicle simulation with the desired track. Available tracks include `dirt_track`, `snow_track`, `grass_track`,`sand_track`, and `grass_track`:
 
@@ -115,9 +115,7 @@ source install/setup.bash
 ros2 launch autopilot_neural_network data_collector.launch.py
 ```
 
-
 ### 📉 Neural Network Training
-
 
 To start the training process, activate the Python virtual environment and run the training script with the dataset and model paths specified:
 
@@ -166,7 +164,7 @@ The following arguments can be used with the `train.py` script to configure the 
 
 ### 🚗 Inference
 
-Before starting the `autopilot` node, make sure the correct model is configured. Update the `model_path` parameter in the `autopilot_neural_network/config/parameters.yaml` file to point to the location of your trained model. This ensures that the autopilot loads and uses the intended neural network during execution.
+Before starting the `autopilot` node, make sure the correct model is configured. Update the `model_path` parameter in the `autopilot_neural_network/config/parameters.yaml` file to point to the location of your trained model. This ensures that the autopilot loads and uses the intended neural network during execution. Make sure to rebuild the package after changing the parameters.
 
 Start the simulation environment before running the inference node. Launch the vehicle simulation using `vehicle.launch.py`. This initializes the Gazebo world and the vehicle:
 
@@ -203,7 +201,7 @@ After launching the simulation, the system is ready to operate. If the model was
 
 The parameters for the data colection and inference nodes can be configured in the `autopilot_neural_network/config/parameters.yaml` file. This file includes the following settings with their default values:
 
-```bash
+```yaml
 # Vehicle node and topics
 vehicle_node: "vehicle_controller" # Name of the node from which to retrieve vehicle parameters
 velocity_topic: "/velocity" # Topic for publishing/subscribing to velocity commands
