@@ -357,10 +357,10 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     
-    parser.add_argument('--dataset_path', type=str, required=True,
+    parser.add_argument('--dataset_path', type=str, default="/tmp/autopilot_neural_network/dataset",
                         help="Path to the directory containing the dataset.")
-    
-    parser.add_argument('--model_path', type=str, required=True,
+
+    parser.add_argument('--model_path', type=str, default="/tmp/autopilot_neural_network/model.pt",
                         help="Path to save the best model checkpoint.")
     
     parser.add_argument('--epochs', type=int, default=100,
