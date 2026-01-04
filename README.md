@@ -1,12 +1,10 @@
 # Autopilot Neural Network
 
-## 🤖 About
-
 This package implements the data collection, training, and inference pipeline for an end-to-end autonomous driving system in ROS 2. It is responsible for gathering data, organizing and storing datasets for training, and providing the neural network training scripts along with a runtime inference node for autonomous control.
 
-## 💻 Instalation
+## 💻 Installation
 
-Clone this repository into your ```workspace/src``` folder. If you don't have a workspace set up, you can learn more about creating one in the [ROS 2 workspace tutorial](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html).
+Clone this repository to your `workspace/src` folder. If you don't have a workspace set up, you can learn more about creating one in the [ROS 2 workspace tutorial](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html).
 
 ```bash
 cd <path_to_your_workspace>/src
@@ -72,7 +70,7 @@ This section explains how to use the system to collect data, train the neural ne
 
 Before collecting data, configure where the dataset will be stored. Update the `dataset_path` parameter in the `autopilot_neural_network/config/parameters.yaml` file to point to your desired dataset destination. Make sure to rebuild the package after changing the parameters.
 
-Then, to launch the simulation for data collection, set up the environment and start the vehicle simulation with the desired track. Available tracks include `dirt_track`, `snow_track`, `grass_track`,`sand_track`, and `grass_track`:
+Then, to launch the simulation for data collection, set up the environment and start the vehicle simulation with the desired track. Available tracks include `dirt_track`, `snow_track`, `sand_track`, and `grass_track`:
 
 ```bash
 source /opt/ros/jazzy/setup.bash 
@@ -130,37 +128,37 @@ python3 train.py --dataset_path <path_to_your_dataset> \
 
 The following arguments can be used with the `train.py` script to configure the training process:
 
-- --`dataset_path`: Path to the directory containing the training dataset.
+- `--dataset_path`: Path to the directory containing the training dataset.
 
-- --`model_path`: Path where the best trained model checkpoint will be saved.
+- `--model_path`: Path where the best trained model checkpoint will be saved.
 
-- --`epochs`: Number of training epochs to run (default: 100).
+- `--epochs`: Number of training epochs to run (default: 100).
 
-- --`batch_size`: Batch size used for the training data loader (default: 1024).
+- `--batch_size`: Batch size used for the training data loader (default: 1024).
 
-- --`val_batch_size`: Batch size used for the validation data loader (default: 256).
+- `--val_batch_size`: Batch size used for the validation data loader (default: 256).
 
-- --`val_fraction`: Fraction of the dataset reserved for validation (e.g., 0.2 uses 20% of the data for validation).
+- `--val_fraction`: Fraction of the dataset reserved for validation (e.g., 0.2 uses 20% of the data for validation).
 
-- --`learning_rate`: Initial learning rate used by the optimizer  (default: 1e-3).
+- `--learning_rate`: Initial learning rate used by the optimizer  (default: 1e-3).
 
-- --`lr_patience`: Number of epochs without validation loss improvement before reducing the learning rate.
+- `--lr_patience`: Number of epochs without validation loss improvement before reducing the learning rate.
 
-- --`lr_factor`: Factor by which the learning rate is reduced when a plateau is detected.
+- `--lr_factor`: Factor by which the learning rate is reduced when a plateau is detected.
 
-- --`alpha`: Weight applied to the velocity component of the loss function.
+- `--alpha`: Weight applied to the velocity component of the loss function.
 
-- --`beta`: Weight applied to the steering angle component of the loss function.
+- `--beta`: Weight applied to the steering angle component of the loss function.
 
-- --`num_workers`: Number of worker processes used for loading data (default: number of CPU cores minus one).
+- `--num_workers`: Number of worker processes used for loading data (default: number of CPU cores minus one).
 
-- --`height`: Target height for resizing input images (default: 96 pixels).
+- `--height`: Target height for resizing input images (default: 96 pixels).
 
-- --`width`: Target width for resizing input images (default: 128 pixels).
+- `--width`: Target width for resizing input images (default: 128 pixels).
 
-- --`sampler_low_fraction`: Fraction of low-steering samples retained during dataset balancing.
+- `--sampler_low_fraction`: Fraction of low-steering samples retained during dataset balancing.
 
-- --`sampler_threshold_ratio`: Steering ratio (relative to maximum steering) used to define the low-steering region.
+- `--sampler_threshold_ratio`: Steering ratio (relative to maximum steering) used to define the low-steering region.
 
 ### 🚗 Inference
 
@@ -181,7 +179,7 @@ ros2 launch gazebo_ackermann_steering_vehicle vehicle.launch.py \
   world:=$(ros2 pkg prefix gazebo_racing_tracks)/share/gazebo_racing_tracks/worlds/grass_track.sdf
 ```
 
-Once the simulation is running, the autopilot node need to be started in a separate terminal, following the commands shown next:
+Once the simulation is running, the autopilot node needs to be started in a separate terminal, following the commands shown next:
 
 ```bash
 source /opt/ros/jazzy/setup.bash 
@@ -199,7 +197,7 @@ After launching the simulation, the system is ready to operate. If the model was
 
 ## ⚙️ Parameters
 
-The parameters for the data colection and inference nodes can be configured in the `autopilot_neural_network/config/parameters.yaml` file. This file includes the following settings with their default values:
+The parameters for the data collection and inference nodes can be configured in the `autopilot_neural_network/config/parameters.yaml` file. This file includes the following settings with their default values:
 
 ```yaml
 # Vehicle node and topics
