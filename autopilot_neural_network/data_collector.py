@@ -120,13 +120,13 @@ class DataCollector(ParametersClientNode):
     """
         
     def __init__(self):
-        super().__init__('data_collector')
+        super().__init__("data_collector")
 
         # Load ROS parameters
-        self.declare_parameter('min_velocity_factor', 0.25)
-        self.declare_parameter('timeout_time', 1_000_000_000)
-        self.declare_parameter('update_period', 0.5)
-        self.declare_parameter('dataset_path', '/tmp/autopilot_neural_network/dataset')
+        self.declare_parameter("min_velocity_factor", 0.25)
+        self.declare_parameter("timeout_time", 1_000_000_000)
+        self.declare_parameter("update_period", 0.5)
+        self.declare_parameter("dataset_path", "/tmp/autopilot_neural_network/dataset")
         
         self.declare_parameter("vehicle_node", "vehicle_controller")
         self.declare_parameter("velocity_topic", "vehicle_controller")
@@ -137,10 +137,10 @@ class DataCollector(ParametersClientNode):
         self.declare_parameter("max_steering_angle_parameter", "max_steering_angle")
 
         # Retrieve parameters
-        self.min_velocity_factor = self.get_parameter('min_velocity_factor').value
-        self.timeout_time = self.get_parameter('timeout_time').value
-        self.update_period = self.get_parameter('update_period').value
-        self.dataset_path = self.get_parameter('dataset_path').value
+        self.min_velocity_factor = self.get_parameter("min_velocity_factor").value
+        self.timeout_time = self.get_parameter("timeout_time").value
+        self.update_period = self.get_parameter("update_period").value
+        self.dataset_path = self.get_parameter("dataset_path").value
        
         self.vehicle_node = self.get_parameter("vehicle_node").value
         self.velocity_topic = self.get_parameter("velocity_topic").value

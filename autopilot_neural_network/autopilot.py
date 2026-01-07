@@ -43,7 +43,7 @@ class Autopilot(ParametersClientNode):
         self.declare_parameter("image_width", 128)
         self.declare_parameter("image_height", 96)
         
-        self.declare_parameter('model_path', '/tmp/autopilot_neural_network/model.pt')
+        self.declare_parameter("model_path", "/tmp/autopilot_neural_network/model.pt")
         
         self.declare_parameter("max_velocity_parameter", "max_velocity")
         self.declare_parameter("max_steering_angle_parameter", "max_steering_angle")
@@ -77,7 +77,7 @@ class Autopilot(ParametersClientNode):
         
         checkpoint = torch.load(self.model_path, map_location=self.device)
         
-        self.model.load_state_dict(checkpoint['state_dict'])
+        self.model.load_state_dict(checkpoint["state_dict"])
         self.model.eval()
         self.model.to(self.device)
 
